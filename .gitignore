@@ -1,0 +1,68 @@
+### Python ###
+
+# Archivos de caché de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+
+# Directorios de entornos virtuales
+venv/
+env/
+.venv/
+*/venv/
+*/env/
+*/.venv/
+
+# Archivos generados por paquetes de instalación
+*.egg
+*.egg-info
+dist/
+build/
+.cache/
+
+# Archivos de depuración y logging
+*.log
+*.sqlite3
+*.csv
+*.xls
+*.xlsx
+
+# Archivos generados por herramientas de documentación (ej. Sphinx)
+docs/_build/
+
+# Artefactos de pruebas (ej. cobertura)
+.coverage
+.tox/
+htmlcov/
+.pytest_cache/
+
+# IDEs y Editores
+
+# VSCode
+.vscode/
+
+# PyCharm/IntelliJ
+.idea/
+
+# Jupyter/IPython Notebooks
+.ipynb_checkpoints
+
+# Archivos de variables de entorno y secretos
+# ¡IMPORTANTE! NUNCA subir claves o secretos.
+.env
+.flaskenv
+.secrets.toml
+
+# macOS
+.DS_Store
+
+# Scrips a ignorar
+tree_generator.py
+
+# carpeta temporal
+temp/
+
+# Carpeta temporal de copias de seguridad
+backups/

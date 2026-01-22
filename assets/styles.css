@@ -1,0 +1,689 @@
+/* ==================== SISTEMA DE DISEÑO SAVIA SALUD ==================== */
+
+:root {
+    /* Paleta Principal */
+    --savia-primary: #01A48D;
+    --savia-secondary: #234C5B;
+    --savia-white: #FFFFFF;
+    
+    /* Escala Niagara */
+    --niagara-50: #effefa;
+    --niagara-100: #c8fff0;
+    --niagara-200: #91fee3;
+    --niagara-300: #52f6d4;
+    --niagara-400: #1ee3c0;
+    --niagara-500: #05c7a7;
+    --niagara-600: #01a48d;
+    --niagara-700: #067f70;
+    --niagara-800: #0a655a;
+    --niagara-900: #0e534b;
+    --niagara-950: #00332f;
+    
+    /* Estados */
+    --savia-success: #01A48D;
+    --savia-warning: #ffc107;
+    --savia-danger: #dc3545;
+    --savia-info: #52f6d4;
+    
+    /* Textos */
+    --text-primary: #00332f;
+    --text-secondary: #067f70;
+    --text-muted: #6c757d;
+    
+    /* Espaciado */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    
+    /* Sombras */
+    --shadow-sm: 0 1px 2px rgba(1, 164, 141, 0.05);
+    --shadow-md: 0 4px 6px rgba(1, 164, 141, 0.1);
+    --shadow-lg: 0 10px 15px rgba(1, 164, 141, 0.15);
+    
+    /* Bordes */
+    --border-radius: 0.375rem;
+    --border-color: #effefa;
+}
+
+
+/* ==================== GLOBAL ==================== */
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text-primary);
+    background-color: #f8f9fa;
+}
+
+/* Transiciones selectivas */
+.btn, .card, .badge, .alert {
+    transition: all 0.2s ease-in-out;
+}
+
+
+/* ==================== NAVBAR ==================== */
+
+.navbar-savia {
+    background: linear-gradient(135deg, var(--savia-primary) 0%, var(--savia-secondary) 100%);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-md) 0;
+}
+
+.navbar-savia .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--savia-white) !important;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.navbar-savia .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.navbar-savia .nav-link:hover {
+    color: var(--savia-white) !important;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+}
+
+
+/* ==================== STEPPER CIRCULAR ==================== */
+
+.stepper-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 0;
+    gap: 0.5rem;
+}
+
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 100px;
+}
+
+.step-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.step-circle-completed {
+    background-color: var(--savia-success);
+    color: var(--savia-white);
+    box-shadow: 0 2px 8px rgba(1, 164, 141, 0.3);
+}
+
+.step-circle-active {
+    background-color: var(--savia-primary);
+    color: var(--savia-white);
+    box-shadow: 0 4px 12px rgba(1, 164, 141, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.step-circle-pending {
+    background-color: #e9ecef;
+    color: #6c757d;
+    border: 2px solid #dee2e6;
+}
+
+.step-circle-pending:hover {
+    background-color: #dee2e6;
+}
+
+.step-label {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.step-connector {
+    width: 60px;
+    height: 3px;
+    margin: 0 0.5rem;
+    margin-bottom: 30px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.step-connector-completed {
+    background: linear-gradient(90deg, var(--savia-primary) 0%, var(--niagara-400) 100%);
+}
+
+.step-connector-pending {
+    background-color: #e9ecef;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 4px 12px rgba(1, 164, 141, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(1, 164, 141, 0.6);
+    }
+}
+
+
+/* ==================== CARDS ==================== */
+
+.card-savia {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.3s ease;
+}
+
+.card-savia:hover {
+    box-shadow: 0 8px 16px rgba(1, 164, 141, 0.15);
+}
+
+.card-header-savia {
+    background: linear-gradient(135deg, var(--niagara-50) 0%, var(--savia-white) 100%);
+    border-bottom: 2px solid var(--savia-primary);
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.selectable-card {
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.selectable-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(1, 164, 141, 0.2) !important;
+}
+
+.selectable-card:active {
+    transform: translateY(-1px);
+}
+
+
+/* ==================== BOTONES ==================== */
+
+.btn-primary {
+    background-color: var(--savia-primary) !important;
+    border-color: var(--savia-primary) !important;
+    color: var(--savia-white) !important;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: var(--niagara-700) !important;
+    border-color: var(--niagara-700) !important;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background-color: var(--savia-secondary) !important;
+    border-color: var(--savia-secondary) !important;
+    color: var(--savia-white) !important;
+}
+
+.btn-secondary:hover {
+    background-color: var(--niagara-950) !important;
+    border-color: var(--niagara-950) !important;
+}
+
+.btn-success {
+    background-color: var(--savia-success) !important;
+    border-color: var(--savia-success) !important;
+}
+
+.btn-outline-primary {
+    border-color: var(--savia-primary) !important;
+    color: var(--savia-primary) !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--savia-primary) !important;
+    color: var(--savia-white) !important;
+}
+
+
+/* ==================== COLLAPSE ==================== */
+
+.collapse {
+    transition: height 0.3s ease !important;
+}
+
+.collapsing {
+    transition: height 0.3s ease !important;
+}
+
+
+/* ==================== DATE PICKERS ==================== */
+
+.DateInput {
+    width: 100%;
+    position: relative;
+}
+
+.SingleDatePickerInput {
+    width: 100%;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: var(--border-radius);
+}
+
+.DateInput_input {
+    background-color: white;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.DayPicker {
+    z-index: 999999 !important;
+}
+
+.DayPickerNavigation {
+    z-index: 1000000 !important;
+}
+
+.DayPickerNavigation_button {
+    z-index: 1000001 !important;
+}
+
+.CalendarMonthGrid,
+.CalendarMonth,
+.CalendarDay {
+    z-index: 999999 !important;
+}
+
+.card,
+.card-body,
+.card-savia {
+    overflow: visible !important;
+    position: relative;
+}
+
+#panel-filtros-globales {
+    position: relative;
+    z-index: 1;
+}
+
+.date-picker-container {
+    padding-bottom: 2rem;
+    position: relative;
+}
+
+
+/* ==================== DROPDOWNS ==================== */
+
+.Select-menu-outer,
+.Select-menu,
+div[class*="menu"],
+div[class*="Menu"],
+div[class*="MenuList"] {
+    z-index: 99999 !important;
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+}
+
+.Select-menu-outer {
+    position: absolute !important;
+}
+
+.Select-menu {
+    max-height: 300px !important;
+}
+
+.dash-dropdown .Select-menu-outer {
+    z-index: 99999 !important;
+}
+
+.card-body,
+.container,
+.container-fluid {
+    overflow: visible !important;
+}
+
+div[class*="control"],
+div[class*="Control"],
+div[class*="option"],
+div[class*="Option"] {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+}
+
+
+/* ==================== BADGES ==================== */
+
+.badge-savia {
+    background-color: var(--savia-primary);
+    color: var(--savia-white);
+    font-weight: 600;
+    padding: 0.35em 0.65em;
+    border-radius: var(--border-radius);
+}
+
+.badge-required {
+    background-color: var(--savia-danger);
+    font-size: 0.7em;
+    vertical-align: super;
+}
+
+
+/* ==================== ALERTS ==================== */
+
+.alert-savia {
+    border-left: 4px solid transparent;
+    border-radius: var(--border-radius);
+}
+
+.alert-savia.alert-info {
+    background-color: rgba(82, 246, 212, 0.1);
+    border-left-color: var(--savia-info);
+    color: var(--text-primary);
+}
+
+.alert-savia.alert-success {
+    background-color: rgba(1, 164, 141, 0.1);
+    border-left-color: var(--savia-success);
+}
+
+.alert-savia.alert-warning {
+    background-color: rgba(255, 193, 7, 0.1);
+    border-left-color: var(--savia-warning);
+}
+
+.alert-savia.alert-danger {
+    background-color: rgba(220, 53, 69, 0.1);
+    border-left-color: var(--savia-danger);
+}
+
+
+/* ==================== TOOLTIPS ==================== */
+
+.tooltip-savia .tooltip-inner {
+    background-color: var(--savia-secondary);
+    color: var(--savia-white);
+    max-width: 300px;
+    text-align: left;
+    font-size: 0.875rem;
+}
+
+.tooltip-savia .tooltip-arrow::before {
+    border-top-color: var(--savia-secondary) !important;
+}
+
+
+/* ==================== INPUTS Y FORMS ==================== */
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--savia-primary);
+    box-shadow: 0 0 0 0.25rem rgba(1, 164, 141, 0.25);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.input-group-text {
+    background-color: var(--niagara-50);
+    border-color: var(--border-color);
+    color: var(--text-secondary);
+}
+
+
+/* ==================== CHECKLIST COLUMNAS ==================== */
+
+.column-checklist {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: var(--spacing-md);
+    background-color: var(--niagara-50);
+    border-radius: var(--border-radius);
+}
+
+.column-checklist::-webkit-scrollbar {
+    width: 8px;
+}
+
+.column-checklist::-webkit-scrollbar-track {
+    background: var(--niagara-100);
+    border-radius: var(--border-radius);
+}
+
+.column-checklist::-webkit-scrollbar-thumb {
+    background: var(--savia-primary);
+    border-radius: var(--border-radius);
+}
+
+.column-checklist::-webkit-scrollbar-thumb:hover {
+    background: var(--niagara-700);
+}
+
+
+/* ==================== NAVIGATION FOOTER ==================== */
+
+.navigation-footer {
+    background-color: var(--savia-white);
+    padding: var(--spacing-lg);
+    border-top: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    margin-top: var(--spacing-xl);
+}
+
+
+/* ==================== SPINNER Y LOADING ==================== */
+
+.spinner-savia {
+    color: var(--savia-primary) !important;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    border-width: 0.25rem !important;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9998;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-overlay .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    border-width: 0.3rem;
+    color: var(--savia-primary);
+}
+
+/* ============================================
+   LOADING OVERLAY GLOBAL
+   ============================================ */
+
+.global-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--savia-primary) 0%, var(--savia-secondary) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+}
+
+.global-loading-overlay.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-content {
+    text-align: center;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Spinner personalizado */
+.global-loading-overlay .spinner-border {
+    border-color: rgba(255, 255, 255, 0.3);
+    border-right-color: white;
+}
+
+.loading-message {
+    margin-top: 1rem;
+    color: white;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+/* ==================== MODALS ==================== */
+
+.modal-header-savia {
+    background: linear-gradient(135deg, var(--niagara-50) 0%, var(--savia-white) 100%);
+    border-bottom: 2px solid var(--savia-primary);
+}
+
+.modal-content {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* ==================== RESULTADOS PANEL ==================== */
+
+.results-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, var(--niagara-50) 0%, var(--savia-white) 100%);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-lg);
+}
+
+.results-stat-item {
+    text-align: center;
+}
+
+.results-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--savia-primary);
+    display: block;
+}
+
+.results-stat-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+
+/* ==================== ANIMACIONES ==================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slide-in-right {
+    animation: slideInRight 0.3s ease-in-out;
+}
+
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+    .navbar-savia .navbar-brand {
+        font-size: 1.25rem;
+    }
+    
+    .stepper-container {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .step-connector {
+        display: none;
+    }
+    
+    .results-stats {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+}
+
+
+/* ==================== UTILIDADES ==================== */
+
+.text-savia-primary {
+    color: var(--savia-primary) !important;
+}
+
+.text-savia-secondary {
+    color: var(--savia-secondary) !important;
+}
+
+.bg-savia-light {
+    background-color: var(--niagara-50) !important;
+}
+
+.border-savia {
+    border-color: var(--savia-primary) !important;
+}
